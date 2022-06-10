@@ -1,0 +1,7 @@
+project: vigra
+target: example-invert
+testsuite:
+  - file://all_gray.bmp
+cmds:
+  - cmd: /repo/build/src/examples/example_invert /in.bmp out.bmp
+    filepath: /in.bmp
