@@ -9,11 +9,8 @@ RUN cmake ..
 RUN make -j8
 RUN make -j8 examples
 
-RUN mkdir -p /deps
-RUN ldd /repo/build/src/examples/example_invert | tr -s '[:blank:]' '\n' | grep '^/' | xargs -I % sh -c 'cp % /deps;'
-
 FROM ubuntu:22.04 as package
 
-COPY --from=builder /deps /deps
+COPY --from=builder /repo/build/src/impex/libvigraimpex* /deps/
 COPY --from=builder /repo/build/src/examples/example_invert /repo/build/src/examples/example_invert
 ENV LD_LIBRARY_PATH=/deps
