@@ -51,7 +51,8 @@ jobs:
       fail-fast: false
       matrix:
         mayhemfile:
-          - mayhem/Mayhemfile
+          - mayhem/Mayhemfile_example_invert
+          - mayhem/Mayhemfile_trimString
 
     steps:
       - uses: actions/checkout@v2
